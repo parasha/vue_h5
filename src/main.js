@@ -3,7 +3,14 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
+
+// 后退时刷新页面
+window.addEventListener('pageshow', (e) => {
+  if (e.persisted) {
+    location.reload();
+  }
+});
 
 new Vue({
   router,

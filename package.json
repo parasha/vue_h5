@@ -4,10 +4,12 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build"
+    "build": "vue-cli-service build",
+    "testbuild": "vue-cli-service build --mode development"
   },
   "dependencies": {
     "core-js": "^2.6.5",
+    "postcss-pxtorem": "^5.1.1",
     "vue": "^2.6.10",
     "vue-router": "^3.0.3",
     "vuex": "^3.0.1"
