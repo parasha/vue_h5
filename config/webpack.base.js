@@ -22,13 +22,9 @@ const config = {
      *
      * If use default port, use 'sudo npm run serve'
      */
-    host: 'dlb.qsebao.com',
-    port: '443',
-    // https: true,
-    https: {
-      key: fs.readFileSync(path.resolve(__dirname, 'ssl/key.pem')),
-      cert: fs.readFileSync(path.resolve(__dirname, 'ssl/crt.pem'))
-    },
+    host: 'localhost',
+    port: '8005',
+    https: true,
     open: true,
     hot: true,
   },
