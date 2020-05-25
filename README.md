@@ -1,19 +1,27 @@
-# vue2.0_demo
+## 🚧项目施工中
 
-## Project setup
-```
+## 简介
+一个基于 Vue2.0 的移动端项目
+
+主要是把最近弄得一些通用组件一类的总结一下，找个地方放一放
+
+
+## 涉及内容
+- vue-cli
+- vuex
+- vue-router
+- axios
+- vant
+
+
+## 开发
+```bash
+# 安装依赖
 npm install
-```
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+# 启动服务
+npm run dev
 
-### Compiles and minifies for production
-```
+# 构建
 npm run build
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
