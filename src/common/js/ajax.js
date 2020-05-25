@@ -7,7 +7,8 @@ const headers = {
 
 
 //
-const Ajax = Axios.create({
+const axios = Axios.create({
+  baseURL: '',
   withCredentials: true,
   timeout: 10000,
   headers: headers,
@@ -16,34 +17,27 @@ const Ajax = Axios.create({
 
 
 //
-Ajax.interceptors.request.use(config => {
+axios.interceptors.request.use(config => {
   // 初始化时无token, 追加token
   const currentToken = store.get('TOKEN');
   if (currentToken) {
     config.headers.token = currentToken;
-  }
-  if (config.method.toLowerCase() == 'get') {
-    config.params = config.params || {};
-    config.params.r = Math.random();
-  } else if (config.method.toLowerCase() == "post" || config.method.toLowerCase() == "put" || config.method.toLowerCase() == "patch") {
-    config.data = JSON.stringify(config.data)
   }
   return config;
 });
 
 
 //
-Ajax.interceptors.response.use(res => {
+axios.interceptors.response.use(res => {
   return Promise.resolve(res.data);
 }, res => {
   if (res.response) {
     // 错误提示
-    window.Toast('错误码：' + res.response.status + '\n错误内容：' + res.response.statusText)
+    return Promise.reject({ msg: res.response.statusText });
   } else {
-    window.Toast('系统繁忙，请稍后再试。')
+    return Promise.reject({ msg: '网络错误，请稍后再试。' });
   }
-  return Promise.reject(res);
 })
 
 //
-export default Ajax;
+export default axios;
