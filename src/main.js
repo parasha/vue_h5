@@ -11,6 +11,9 @@ import Vant from 'vant';
 import 'vant/lib/index.css';
 Vue.use(Vant);
 
+import vueMask from '@components/mask';
+Vue.component('vueMask', vueMask)
+
 // 后退时刷新页面
 window.addEventListener('pageshow', (e) => {
   if (e.persisted) {
@@ -21,6 +24,5 @@ window.addEventListener('pageshow', (e) => {
 new Vue({
   router,
   store,
-  // render: h => h('div', 'hello world')
   render: h => h(App)
 }).$mount('#app')
