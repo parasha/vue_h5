@@ -12,7 +12,7 @@ module.exports = {
 	chainWebpack(config) {
 		config.module
 			.rule('vue')
-			.use('vue-loader')
+			.use('vue-loader')     
 			.loader('vue-loader')
 			.tap(options => {
 				options.compilerOptions.preserveWhitespace = true; // html 标签去空格
@@ -27,7 +27,7 @@ module.exports = {
 					name: 'node_modules',
 					test: /[\\/]node_modules[\\/]/,
 					priority: 10,
-					chunks: 'initial' // only package third parties that are initially dependent
+					chunks: 'all' // only package third parties that are initially dependent
 				},
 				vue: {
 					name: 'vue', // split elementUI into a single package

@@ -44,7 +44,7 @@ export default {
 
 <style lang="less" scoped>
 .scroll-wrapper {
-  width: 100%;1
+  width: 100%;
   overflow-x: hidden;
   overflow-y: scroll;
 }
