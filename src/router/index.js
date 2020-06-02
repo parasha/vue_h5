@@ -14,6 +14,10 @@ const routes = [
   {
     path: '/list',
     component: list
+  },
+  {
+    path: '/infinite-scroll',
+    component: ()=>import(/* webpackChunkName: "infinite-scroll" */'@pages/infiniteScroll.vue')
   }
 ]
 

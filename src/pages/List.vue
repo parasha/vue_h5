@@ -1,47 +1,64 @@
 <template>
   <layout>
-    <scroll @load='load'>
-      <div v-for='(item,index) of list' :key='index' class='item'>
-        {{item}}
+    <div class="list">
+      <div class="list-title">组件：</div>
+      <div class="list-item" v-for="(item,index) of list" :key="index" @click="jump(item.link)">
+        <span>{{item.name}}</span>
+        <van-icon name="arrow" color="#999999" />
       </div>
-    </scroll>
+    </div>
   </layout>
 </template>
 
 <script>
+import Vue from "vue";
 import layout from "@components/layout";
-import scroll from "@components/infinite-scroll/index";
-let data_list = [1,2,3,4,5,6,7,8,9,10];
+import { Icon } from "vant";
+Vue.use(Icon);
 export default {
   components: {
-    layout,
-    scroll
+    layout
   },
-  data:function(){
+  data: function() {
     return {
-      list: [],
+      list: [
+        {
+          name: "滚动加载",
+          link: "/infinite-scroll"
+        }
+      ]
     };
   },
   created: function() {
     this.$store.commit("changeTab", "list");
   },
-  methods:{
-    load: function(){
-      this.list = this.list.concat(data_list);
+  methods: {
+    jump: function(link) {
+      this.$router.push(link)
     }
   }
 };
 </script>
 
 <style lang="less" scoped>
-.scroll-wrapper{
-  height: 100vh;
-  padding-bottom: 50px;
-
-  .item{
-    height: 70px;
-    padding: 10px 26px;
-    border-bottom: 1px solid #e5e5e5;
+.list {
+  padding: 20px 16px;
+  .list-title {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 10px;
+  }
+  .list-item {
+    padding: 5px 16px;
+    height: 50px;
+    border-radius: 25px;
+    line-height: 50px;
+    font-size: 17px;
+    background-color: #eaeaea;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #999999;
   }
 }
 </style>

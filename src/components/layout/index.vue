@@ -3,7 +3,7 @@
     <slot></slot>
     <van-tabbar v-model="$store.state.active_tab">
       <van-tabbar-item name="home" icon="home-o" @click="jump('home','/')">首页</van-tabbar-item>
-      <van-tabbar-item name="list" icon="more-o" @click="jump('home','/list')">列表</van-tabbar-item>
+      <van-tabbar-item name="list" icon="more-o" @click="jump('home','/list')">组件列表</van-tabbar-item>
     </van-tabbar>
   </div>
 </template>

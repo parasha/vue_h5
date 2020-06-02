@@ -1,9 +1,6 @@
 <template>
   <layout>
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/list">List</router-link>
-    </div>
+    什么也没有的首页
   </layout>
 </template>
 
