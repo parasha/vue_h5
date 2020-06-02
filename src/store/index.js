@@ -4,8 +4,14 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 
-const state = {};
-const mutations = {};
+const state = {
+  active_tab: 'home'
+};
+const mutations = {
+  changeTab: function (state, active_tab) {
+    state.active_tab = active_tab;
+  }
+};
 const actions = {};
 const modules = {};
 

@@ -1,8 +1,8 @@
 <template>
-  <layout active="home">
+  <layout>
     <div id="nav">
       <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/list">List</router-link>
     </div>
   </layout>
 </template>
@@ -12,6 +12,9 @@ import layout from "@components/layout";
 export default {
   components: {
     layout
+  },
+  created: function(){
+    this.$store.commit('changeTab','home');
   }
 };
 </script>

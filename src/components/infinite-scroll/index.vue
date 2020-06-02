@@ -19,7 +19,9 @@ export default {
       last_load_time: 0
     };
   },
-
+  mounted:function(){
+    this.load();
+  },
   methods: {
     scroll: function() {
       const el = this.$refs.scroll;
