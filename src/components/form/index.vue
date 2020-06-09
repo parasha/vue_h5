@@ -1,4 +1,8 @@
-import test from './components/test'
+<script>
+import test from "./components/test";
+/**
+ * form type: input password radio date select
+ */
 
 export default {
   components: { test },
@@ -20,3 +24,7 @@ export default {
     }, [h(test, { props: { name: '测试' } })]);
   },
 }
+</script>
+
+<style lang="less" scoped>
+</style>

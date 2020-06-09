@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import configForm from "@components/form/index.js";
+import configForm from "@components/form";
 export default {
   components: {
     configForm,
