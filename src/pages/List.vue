@@ -25,6 +25,10 @@ export default {
         {
           name: "滚动加载",
           link: "/infinite-scroll"
+        },
+        {
+          name: '配置表单',
+          link: '/form'
         }
       ]
     };
@@ -50,6 +54,7 @@ export default {
   }
   .list-item {
     padding: 5px 16px;
+    margin-bottom: 10px;
     height: 50px;
     border-radius: 25px;
     line-height: 50px;
