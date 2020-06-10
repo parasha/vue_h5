@@ -1,7 +1,7 @@
 <template>
   <div id="form-page">
     <div class="form">
-      <config-form :config='form_config'></config-form>
+      <config-form :config="form_config" :form='form'></config-form>
     </div>
   </div>
 </template>
@@ -14,16 +14,20 @@ export default {
   },
   data() {
     return {
-      form_config:[
-        {
+      form_config:{
+        username:{
           name: '账号',
           type: 'input',
         },
-        {
+        password:{
           name: '密码',
           type: 'password'
         }
-      ]
+      },
+      form:{
+        username: 'ningzhenyu',
+        password: 123321,
+      }
     };
   },
 
