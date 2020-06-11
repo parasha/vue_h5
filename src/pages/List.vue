@@ -29,6 +29,10 @@ export default {
         {
           name: "简化版配置表单",
           link: "/simple-form"
+        },
+        {
+          name: "配置化表单",
+          link: "/json-form"
         }
       ]
     };

@@ -21,7 +21,11 @@ const routes = [
   },
   {
     path: '/simple-form',
-    component: ()=>import(/* webpackChunkName: "form" */'@pages/SimpleForm.vue')
+    component: ()=>import(/* webpackChunkName: "simple-form" */'@pages/SimpleForm.vue')
+  },
+  {
+    path: '/json-form',
+    component: ()=>import(/* webpackChunkName: "json-form" */'@pages/VantJsonForm.vue')
   }
 ]
 
