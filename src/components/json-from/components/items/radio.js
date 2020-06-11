@@ -33,6 +33,8 @@ export default {
         }
       }, options.map(item => {
         return h(Radio, {
+          // todo
+          // 这里要加一个禁用功能
           props: assign(item.props, { name: item.key }),
           on: {
             click: () => {
