@@ -1,7 +1,7 @@
 <template>
   <div id="form-page">
     <div class="form">
-      <config-form :config="form_config" :form='form'></config-form>
+      <config-form :config="form_config" :form="form"></config-form>
     </div>
   </div>
 </template>
@@ -10,23 +10,42 @@
 import configForm from "@components/form";
 export default {
   components: {
-    configForm,
+    configForm
   },
   data() {
     return {
-      form_config:{
-        username:{
-          name: '账号',
-          type: 'input',
+      form_config: {
+        username: {
+          name: "账号",
+          type: "input"
         },
-        password:{
-          name: '密码',
-          type: 'password'
+        password: {
+          name: "密码",
+          type: "input",
+          attrs: {
+            type: "password"
+          }
+        },
+        relation: {
+          name: "关系",
+          type: "radio",
+          options: [
+            { key: 0, value: "本人" },
+            { key: 1, value: "父母" },
+            { key: 2, value: "子女" },
+            { key: 3, value: "其他" }
+          ]
+        },
+        birthday: {
+          name: "出生日期",
+          type: "date"
         }
       },
-      form:{
-        username: 'ningzhenyu',
+      form: {
+        username: "ningzhenyu",
         password: 123321,
+        relation: 0,
+        birthday: undefined
       }
     };
   },

@@ -1,5 +1,7 @@
 <script>
 import input from "./input/input";
+import radio from "./input/radio.vue";
+
 function createFormItemName(h, form_item_config) {
   return h("div", {
     class: "form-item-name",
@@ -10,8 +12,11 @@ function createFormItemName(h, form_item_config) {
 }
 
 function createFormItemInput(h, form_item_config, form, form_item_key) {
-  if (form_item_config.type == "input" || form_item_config.type == "password") {
-    return h(input, { props: { form_item_config, form, form_item_key } });
+  switch (form_item_config.type) {
+    case "input":
+      return h(input, { props: { form_item_config, form, form_item_key } });
+    case "radio":
+      return h(radio, { props: { form_item_config, form, form_item_key } });
   }
 }
 export default {
@@ -56,7 +61,7 @@ export default {
 .form-item {
   display: flex;
   align-items: center;
-  font-size: 16px;
+  font-size: 14px;
   color: #666666;
   margin-bottom: 10px;
   border-bottom: 1px solid #e5e5e5;
