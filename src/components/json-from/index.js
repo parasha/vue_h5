@@ -20,6 +20,9 @@ export default {
       {},
       (() => {
         if (typeof this.config == 'object') {
+          // slot 测试
+          console.log('slot', this.$slots);
+          
           let arr = [];
           for (const key in this.config) {
             // 表单项的单项配置

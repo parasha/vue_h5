@@ -1,7 +1,9 @@
 <template>
   <div id="Vant-Json-Form">
     <div class="form">
-      <json-form :config="form_config" :form="form"></json-form>
+      <json-form :config="form_config" :form="form">
+        <span>slot 测试</span>
+      </json-form>
     </div>
     <div class="button" @click="submit">提交</div>
   </div>
@@ -14,51 +16,33 @@ export default {
   data() {
     return {
       form_config: {
-        username: {
+        name: {
           type: "field",
           props: {
-            label: "用户名",
-            rules: [{ required: true, message: "请填写用户名" }]
-          },
-          events: {
-            focus: function() {
-              console.log("focus");
-            }
+            label: "姓名",
+            placeholder: "请输入姓名"
           }
         },
-        password: {
+        idcard: {
           type: "field",
           props: {
-            label: "密码",
-            type: "password",
-            disabled: false
-          },
-          ifDiasbled: function(form) {
-            if (form.username && form.username.length > 7) {
-              return true;
-            }
+            label: "身份证",
+            placeholder: "请输入身份证"
           }
         },
-        message: {
-          type: "field",
+        relation: {
+          type: "radio",
           props: {
-            rows: "1",
-            autosize: true, // 这里有一些参数不好使
-            label: "留言",
-            type: "textarea",
-            placeholder: "请输入留言",
-            "show-word-limit": true
+            label: "与本人关系",
+            direction: "horizontal"
           },
-          ifRender: function(form) {
-            const { username } = form;
-            return username && username.length > 5;
-          }
+          options: [{ key: 0, value: "本人" },{ key: 1, value: "亲属" },{ key: 2, value: "朋友" }]
         }
       },
       form: {
-        username: undefined,
-        password: 123321,
-        message: undefined
+        name: undefined,
+        idcard: undefined,
+        relation: 0
       }
     };
   },

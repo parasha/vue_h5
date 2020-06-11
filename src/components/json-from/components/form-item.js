@@ -1,7 +1,7 @@
 import mixin from '../utils/form-item-mixin';
 
 import field from './items/field';
-
+import radio from './items/radio';
 
 export default {
   mixins: [mixin],
@@ -21,6 +21,8 @@ export default {
     switch (type) {
       case 'field':
         return h(field, { props: { form_item_config, form, form_item_key } })
+      case 'radio':
+        return h(radio, { props: { form_item_config, form, form_item_key } })
     }
   },
 }
