@@ -7,14 +7,14 @@ export default {
   mixins: [mixin],
   render(h) {
     const { form_item_config, form, form_item_key } = this;
-    const { type, ifReadonly } = form_item_config;
+    const { type, ifDiasbled } = form_item_config;
     // 表单项不可改
-    if (ifReadonly && typeof ifReadonly == 'function') {
-      if (ifReadonly(form)) {
-        form_item_config.props.readonly = true;
+    if (ifDiasbled && typeof ifDiasbled == 'function') {
+      if (ifDiasbled(form)) {
+        form_item_config.props.disabled = true;
       } else {
-        if (form_item_config.props.readonly) {
-          form_item_config.props.readonly = false;
+        if (form_item_config.props.disabled) {
+          form_item_config.props.disabled = false;
         }
       }
     }

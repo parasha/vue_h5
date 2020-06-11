@@ -31,9 +31,9 @@ export default {
           props: {
             label: "密码",
             type: "password",
-            readonly: false
+            disabled: false
           },
-          ifReadonly: function(form) {
+          ifDiasbled: function(form) {
             if (form.username && form.username.length > 7) {
               return true;
             }
