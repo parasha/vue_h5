@@ -27,8 +27,8 @@ export default {
           link: "/infinite-scroll"
         },
         {
-          name: '配置表单',
-          link: '/form'
+          name: "简化版配置表单",
+          link: "/simple-form"
         }
       ]
     };
@@ -38,7 +38,7 @@ export default {
   },
   methods: {
     jump: function(link) {
-      this.$router.push(link)
+      this.$router.push(link);
     }
   }
 };
@@ -47,23 +47,24 @@ export default {
 <style lang="less" scoped>
 .list {
   padding: 20px 16px;
+  color: #333;
+
   .list-title {
     font-size: 18px;
-    color: #666;
     margin-bottom: 10px;
   }
   .list-item {
     padding: 5px 16px;
     margin-bottom: 10px;
-    height: 50px;
+    height: 40px;
     border-radius: 25px;
-    line-height: 50px;
-    font-size: 17px;
-    background-color: #eaeaea;
+    line-height: 40px;
+    font-size: 15px;
+    border: 1px solid #eaeaea;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    color: #999999;
+    color: #666666;
   }
 }
 </style>

@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import configForm from "@components/form";
+import configForm from "@components/simple-form";
 export default {
   components: {
     configForm

@@ -20,8 +20,8 @@ const routes = [
     component: ()=>import(/* webpackChunkName: "infinite-scroll" */'@pages/InfiniteScroll.vue')
   },
   {
-    path: '/form',
-    component: ()=>import(/* webpackChunkName: "form" */'@pages/Form.vue')
+    path: '/simple-form',
+    component: ()=>import(/* webpackChunkName: "form" */'@pages/SimpleForm.vue')
   }
 ]
 
