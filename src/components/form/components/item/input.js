@@ -16,12 +16,12 @@ export default {
     }
   },
   render(h) {
-    const {attrs} = this.form_item_config;
+    const { attrs } = this.form_item_config;
     return h('input', {
       class: 'form-item-input',
       attrs: attrInit(attrs || {}, this.form, this.form_item_key),
       on: {
-        input: (event)=>{
+        input: (event) => {
           this.form[this.form_item_key] = event.target.value
         }
       }

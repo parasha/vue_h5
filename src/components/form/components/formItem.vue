@@ -1,6 +1,7 @@
 <script>
-import input from "./input/input";
-import radio from "./input/radio.vue";
+import input from "./item/input";
+import radio from "./item/radio.vue";
+import date from './item/date';
 
 function createFormItemName(h, form_item_config) {
   return h("div", {
@@ -17,6 +18,8 @@ function createFormItemInput(h, form_item_config, form, form_item_key) {
       return h(input, { props: { form_item_config, form, form_item_key } });
     case "radio":
       return h(radio, { props: { form_item_config, form, form_item_key } });
+    case 'date':
+      return h(date, { props: { form_item_config, form, form_item_key } });
   }
 }
 export default {
@@ -36,7 +39,6 @@ export default {
   },
   methods: {},
   render(h) {
-    console.log("render run");
     return h(
       "div",
       {

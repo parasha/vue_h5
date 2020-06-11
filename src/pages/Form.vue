@@ -2,6 +2,7 @@
   <div id="form-page">
     <div class="form">
       <config-form :config="form_config" :form="form"></config-form>
+      <div class="button" @click="submit">提交</div>
     </div>
   </div>
 </template>
@@ -38,19 +39,26 @@ export default {
         },
         birthday: {
           name: "出生日期",
-          type: "date"
+          type: "date",
+          ifRender: function(form){
+            return form.relation > 0
+          }
         }
       },
       form: {
         username: "ningzhenyu",
         password: 123321,
         relation: 0,
-        birthday: undefined
+        birthday: new Date()
       }
     };
   },
 
-  methods: {}
+  methods: {
+    submit: function() {
+      console.log(this.form);
+    }
+  }
 };
 </script>
 
@@ -65,6 +73,15 @@ export default {
     border-radius: 8px;
     box-shadow: rgba(153, 153, 153, 0.12) 0 2px 16px 8px;
     padding: 20px 16px;
+  }
+  .button {
+    margin-top: 15px;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    border-radius: 8px;
+    font-size: 18px;
+    border: 1px solid #e5e5e5;
   }
 }
 </style>

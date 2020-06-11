@@ -9,8 +9,14 @@ function formInit(h, config, form) {
   let arr = [];
   if (config) {
     for (const key in config) {
-      if (config.hasOwnProperty(key)) {
-        const element = config[key];
+      const element = config[key];
+      if (
+        element.ifRender &&
+        typeof element.ifRender == "function" &&
+        !element.ifRender(form)
+      ) {
+        continue;
+      } else {
         arr.push(
           h(formItem, {
             props: { form_item_config: element, form, form_item_key: key }
