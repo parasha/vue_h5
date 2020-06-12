@@ -28,6 +28,9 @@ export default {
           props: {
             label: "身份证",
             placeholder: "请输入身份证"
+          },
+          ifRender: (form)=>{
+            return form.name;
           }
         },
         relation: {
@@ -35,7 +38,8 @@ export default {
           props: {
             label: "与本人关系",
             direction: "horizontal",
-            disabled: false
+            'icon-size': '15px',
+            disabled: false,
           },
           ifDiasbled: form => {
             return !form.name;
@@ -54,12 +58,27 @@ export default {
             { key: 1, value: "亲属" },
             { key: 2, value: "朋友" }
           ]
+        },
+        words: {
+          type: 'checkbox',
+          props:{
+            label: '复选',
+            direction: "horizontal",
+            'icon-size': '15px',
+          },
+          options:[
+            {key: 0, value: 'a'},
+            {key: 1, value: 'b'},
+            {key: 2, value: 'c'},
+            {key: 3, value: 'd'},
+          ]
         }
       },
       form: {
         name: undefined,
         idcard: undefined,
-        relation: 0
+        relation: 0,
+        words: [1,2]
       }
     };
   },

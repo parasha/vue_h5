@@ -3,6 +3,7 @@ import setDisabled from '../utils/setDiaabled';
 
 import field from './items/field';
 import radio from './items/radio';
+import checkbox from './items/checkbox';
 
 export default {
   mixins: [mixin],
@@ -18,6 +19,8 @@ export default {
         return h(field, { props: { form_item_config, form, form_item_key } })
       case 'radio':
         return h(radio, { props: { form_item_config, form, form_item_key } })
+      case 'checkbox':
+        return h(checkbox, { props: { form_item_config, form, form_item_key } })
     }
   },
 }

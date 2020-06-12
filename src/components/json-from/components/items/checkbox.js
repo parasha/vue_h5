@@ -1,7 +1,16 @@
 import mixin from '../../utils/form-item-mixin';
 import assign from '../../utils/assign';
 import setDisabled from '../../utils/setDiaabled';
-import { RadioGroup, Radio } from 'vant';
+import { Checkbox, CheckboxGroup } from 'vant';
+
+function checkboxClick(result, value){
+  let i = result.indexOf(value)
+  if(i > -1){
+    result.splice(i,1)
+  }else{
+    result.push(value)
+  }
+}
 
 export default {
   mixins: [mixin],
@@ -17,7 +26,7 @@ export default {
       }
     }, [
       h('div', {
-        class: 'radio-title',
+        class: 'checkbox-title',
         style: {
           'font-weight': 'bold',
           'padding-bottom': '10px'
@@ -26,7 +35,7 @@ export default {
           innerHTML: props.label
         }
       }),
-      h(RadioGroup, {
+      h(CheckboxGroup, {
         props: assign(props, { value: this.form[this.form_item_key] }),
         on: {
           change: events.change || function () { }
@@ -37,7 +46,12 @@ export default {
         if (ifDiasbled && typeof ifDiasbled == 'function') {
           setDisabled(ifDiasbled, item, this.form)
         }
-        return h(Radio, {
+        return h(Checkbox, {
+          style:{
+            display: 'flex',
+            'align-item': 'center',
+            'margin-bottom': '5px'
+          },
           props: assign(item.props, { name: item.key }),
           on: {
             click: () => {
@@ -49,7 +63,7 @@ export default {
               if(item.props && item.props.disabled){
                 return;
               }
-              this.form[this.form_item_key] = item.key;
+              checkboxClick(this.form[this.form_item_key], item.key)
             }
           },
         }, [
