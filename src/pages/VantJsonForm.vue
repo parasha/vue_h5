@@ -34,9 +34,26 @@ export default {
           type: "radio",
           props: {
             label: "与本人关系",
-            direction: "horizontal"
+            direction: "horizontal",
+            disabled: false
           },
-          options: [{ key: 0, value: "本人" },{ key: 1, value: "亲属" },{ key: 2, value: "朋友" }]
+          ifDiasbled: form => {
+            return !form.name;
+          },
+          options: [
+            {
+              key: 0,
+              value: "本人",
+              props: {
+                disabled: false
+              },
+              ifDiasbled: form => {
+                return form.name == '123';
+              }
+            },
+            { key: 1, value: "亲属" },
+            { key: 2, value: "朋友" }
+          ]
         }
       },
       form: {
