@@ -1,6 +1,6 @@
 <template>
-  <div class="no-touch-move-mask" v-show="show" :style="{'z-index': zIndex}">
-    <div :class="{position}">
+  <div class="no-touch-move-mask" v-show="show" :style="{'z-index': zIndex}" @click.stop.prevent>
+    <div :class="position">
       <slot></slot>
     </div>
   </div>
@@ -35,7 +35,7 @@ export default {
     zIndex: {
       type: Number,
       default: 10002
-    }
+    },
   },
   beforeDestroy() {
     stopBodyScroll(false);
@@ -44,7 +44,7 @@ export default {
     show: function(newValue) {
       stopBodyScroll(newValue);
     }
-  }
+  },
 };
 </script>
 

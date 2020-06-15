@@ -29,7 +29,7 @@ export default {
             label: "身份证",
             placeholder: "请输入身份证"
           },
-          ifRender: (form)=>{
+          ifRender: form => {
             return form.name;
           }
         },
@@ -38,8 +38,8 @@ export default {
           props: {
             label: "与本人关系",
             direction: "horizontal",
-            'icon-size': '15px',
-            disabled: false,
+            "icon-size": "15px",
+            disabled: false
           },
           ifDiasbled: form => {
             return !form.name;
@@ -52,7 +52,7 @@ export default {
                 disabled: false
               },
               ifDiasbled: form => {
-                return form.name == '123';
+                return form.name == "123";
               }
             },
             { key: 1, value: "亲属" },
@@ -60,17 +60,45 @@ export default {
           ]
         },
         words: {
-          type: 'checkbox',
-          props:{
-            label: '复选',
+          type: "checkbox",
+          props: {
+            label: "复选",
             direction: "horizontal",
-            'icon-size': '15px',
+            "icon-size": "15px"
           },
-          options:[
-            {key: 0, value: 'a'},
-            {key: 1, value: 'b'},
-            {key: 2, value: 'c'},
-            {key: 3, value: 'd'},
+          options: [
+            { key: 0, value: "a" },
+            { key: 1, value: "b" },
+            { key: 2, value: "c" },
+            { key: 3, value: "d" }
+          ]
+        },
+        city: {
+          type: "picker",
+          props: {
+            label: "城市"
+          },
+          columns: [
+            { key: "hz", value: "杭州" },
+            { key: "nb", value: "宁波" },
+            { key: "wz", value: "温州" },
+            { key: "jx", value: "嘉兴" },
+            { key: "hz", value: "湖州" }
+          ]
+        },
+        time: {
+          type: "picker",
+          props: {
+            label: "时间"
+          },
+          columns: [
+            {
+              values: ["周一", "周二", "周三", "周四", "周五"]
+            },
+            // 第二列
+            {
+              values: ["上午", "下午", "晚上"]
+            }
           ]
         }
       },
@@ -78,7 +106,8 @@ export default {
         name: undefined,
         idcard: undefined,
         relation: 0,
-        words: [1,2]
+        words: [1, 2],
+        city: undefined
       }
     };
   },
