@@ -3,7 +3,7 @@ import mixin from "../../utils/form-item-mixin";
 import assign from "../../utils/assign";
 
 import vueMask from "@components/mask";
-import { Icon, Picker } from "vant";
+import { Icon, DatetimePicker } from "vant";
 export default {
   mixins: [mixin],
   data: () => {
@@ -75,11 +75,9 @@ export default {
             }
           },
           [
-            h(Picker, {
+            h(DatetimePicker, {
               props: assign(props, {
-                columns: columns,
                 "show-toolbar": true,
-                "value-key": "value"
               }),
               on: {
                 confirm: e => {

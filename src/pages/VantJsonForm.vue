@@ -84,7 +84,10 @@ export default {
             { key: "wz", value: "温州" },
             { key: "jx", value: "嘉兴" },
             { key: "hz", value: "湖州" }
-          ]
+          ],
+          format: function(result){
+            return result.value;
+          }
         },
         time: {
           type: "picker",
@@ -97,9 +100,13 @@ export default {
             },
             // 第二列
             {
-              values: ["上午", "下午", "晚上"]
+              values: ["上午", "下午", "晚上"],
+              defaultIndex: 1
             }
-          ]
+          ],
+          format: function(result){ // 用与结果展示
+            return result[0] + '-' + result[1];
+          }
         }
       },
       form: {
