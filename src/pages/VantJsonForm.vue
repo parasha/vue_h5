@@ -10,7 +10,11 @@
 </template>
 
 <script>
+import Vue from "vue";
 import jsonForm from "@components/json-from";
+
+// test
+import testButton from '../components/json-from/test-button';
 export default {
   components: { jsonForm },
   data() {
@@ -21,6 +25,9 @@ export default {
           props: {
             label: "姓名",
             placeholder: "请输入姓名"
+          },
+          slots:{
+            button: testButton
           }
         },
         idcard: {
@@ -85,7 +92,7 @@ export default {
             { key: "jx", value: "嘉兴" },
             { key: "hz", value: "湖州" }
           ],
-          format: function(result){
+          format: function(result) {
             return result.value;
           }
         },
@@ -104,16 +111,17 @@ export default {
               defaultIndex: 1
             }
           ],
-          format: function(result){ // 用与结果展示
-            return result[0] + '-' + result[1];
+          format: function(result) {
+            // 用与结果展示
+            return result[0] + "-" + result[1];
           }
         },
         date: {
-          type: 'date',
-          props:{
-            label: '日期',
-            type: 'date',
-            'min-date': new Date(),
+          type: "date",
+          props: {
+            label: "日期",
+            type: "date",
+            "min-date": new Date()
           }
         }
       },
@@ -123,7 +131,7 @@ export default {
         relation: 0,
         words: [1, 2],
         city: undefined,
-        date: undefined,
+        date: undefined
       }
     };
   },
