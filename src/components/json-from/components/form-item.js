@@ -5,6 +5,7 @@ import field from './items/field';
 import radio from './items/radio';
 import checkbox from './items/checkbox';
 import picker from './items/picker.vue';
+import date from './items/date.vue';
 
 export default {
   mixins: [mixin],
@@ -24,6 +25,8 @@ export default {
         return h(checkbox, { props: { form_item_config, form, form_item_key } })
       case 'picker':
         return h(picker, { props: { form_item_config, form, form_item_key } })
+      case 'date':
+        return h(date, { props: { form_item_config, form, form_item_key } })
     }
   },
 }

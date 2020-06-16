@@ -107,6 +107,14 @@ export default {
           format: function(result){ // 用与结果展示
             return result[0] + '-' + result[1];
           }
+        },
+        date: {
+          type: 'date',
+          props:{
+            label: '日期',
+            type: 'date',
+            'min-date': new Date(),
+          }
         }
       },
       form: {
@@ -114,7 +122,8 @@ export default {
         idcard: undefined,
         relation: 0,
         words: [1, 2],
-        city: undefined
+        city: undefined,
+        date: undefined,
       }
     };
   },
