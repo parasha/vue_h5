@@ -32,6 +32,7 @@ const routes = [
 function createRouter() {
   const router = new Router({
     mode: 'history',
+    // base: '/vue_demo_page/',
     scrollBehavior: () => ({ y: 0 }),
     routes,
   })

@@ -4,10 +4,10 @@ const webpack_base = require('./config/webpack.base');
 const resolve = dir => path.resolve(__dirname, '../', dir);
 
 module.exports = {
-	publicPath: process.env.NODE_ENV == 'production' ? '/' : '/',
+	publicPath: process.env.NODE_ENV == 'production' ? '/vue_demo_page/' : '/',
 	// publicPath: '/',
 	// publicPath: 'https://cdn.example.com/',
-	productionSourceMap: true, // 不生成 sourceMap
+	productionSourceMap: false, // 不生成 sourceMap
 	configureWebpack: webpack_base,
 	chainWebpack(config) {
 		config.module
