@@ -2,6 +2,22 @@ import formItem from './components/form-item';
 
 import { Form } from 'vant';
 
+function ifRenderHandle(h) {
+  let arr = [];
+  for (const key in this.config) {
+    // 表单项的单项配置
+    const element = this.config[key];
+    // 根据 ifRender 判断是否渲染
+    const { ifRender } = element;
+    if (ifRender && typeof ifRender == 'function' && !ifRender(this.form)) {
+      continue
+    } else {
+      arr.push(h(formItem, { props: { form_item_config: element, form: this.form, form_item_key: key } }))
+    }
+  }
+  return arr;
+}
+
 export default {
   props: {
     config: {
@@ -22,20 +38,7 @@ export default {
         if (typeof this.config == 'object') {
           // slot 测试
           console.log('slot', this.$slots);
-          
-          let arr = [];
-          for (const key in this.config) {
-            // 表单项的单项配置
-            const element = this.config[key];
-            // 根据 ifRender 判断是否渲染
-            const { ifRender } = element;
-            if (ifRender && typeof ifRender == 'function' && !ifRender(this.form)) {
-              continue
-            } else {
-              arr.push(h(formItem, { props: { form_item_config: element, form: this.form, form_item_key: key } }))
-            }
-          }
-          return arr;
+          return ifRenderHandle.call(this, h)
         } else {
           return [];
         }
