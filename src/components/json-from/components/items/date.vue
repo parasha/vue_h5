@@ -4,6 +4,54 @@ import assign from "../../utils/assign";
 
 import vueMask from "@components/mask";
 import { Icon, DatetimePicker } from "vant";
+
+function pickerActiveValueInit(h, props, format) {
+  return h("div", {
+    domProps: {
+      innerHTML: (() => {
+        if (
+          format &&
+          typeof format == "function" &&
+          this.form[this.form_item_key]
+        ) {
+          return format(this.form[this.form_item_key]) || props.label;
+        } else {
+          return props.label;
+        }
+      })()
+    }
+  });
+}
+function maskInit(h, props) {
+  return h(
+    vueMask,
+    {
+      props: {
+        show: this.is_show,
+        position: "bottom"
+      }
+    },
+    [pickerInit.call(this, h, props)]
+  );
+}
+
+function pickerInit(h, props) {
+  return h(DatetimePicker, {
+    props: assign(props, {
+      "show-toolbar": true
+    }),
+    on: {
+      confirm: e => {
+        this.hide();
+        this.form[this.form_item_key] = e;
+      },
+      cancel: e => {
+        this.hide();
+      }
+    }
+  });
+}
+
 export default {
   mixins: [mixin],
   data: () => {
@@ -46,51 +94,13 @@ export default {
         }
       },
       [
-        h("div", {
-          domProps: {
-            innerHTML: (() => {
-              if (
-                format &&
-                typeof format == "function" &&
-                this.form[this.form_item_key]
-              ) {
-                return format(this.form[this.form_item_key]) || props.label;
-              } else {
-                return props.label;
-              }
-            })()
-          }
-        }),
+        pickerActiveValueInit.call(this, h, props, format),
         h(Icon, {
           props: {
             name: "arrow-down"
           }
         }),
-        h(
-          vueMask,
-          {
-            props: {
-              show: this.is_show,
-              position: "bottom"
-            }
-          },
-          [
-            h(DatetimePicker, {
-              props: assign(props, {
-                "show-toolbar": true,
-              }),
-              on: {
-                confirm: e => {
-                  this.hide();
-                  this.form[this.form_item_key] = e;
-                },
-                cancel: e => {
-                  this.hide();
-                }
-              }
-            })
-          ]
-        )
+        maskInit.call(this, h, props)
       ]
     );
   }

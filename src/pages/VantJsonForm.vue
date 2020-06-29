@@ -122,6 +122,9 @@ export default {
             label: "日期",
             type: "date",
             "min-date": new Date()
+          },
+          format: function(result){
+            return result ? result.getTime() : '时间'
           }
         }
       },

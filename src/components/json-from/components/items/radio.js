@@ -29,11 +29,11 @@ function radioGroupInit(h, props, options, events) {
     if (ifDiasbled && typeof ifDiasbled == 'function') {
       setDisabled(ifDiasbled, item, this.form)
     }
-    return radioInit.call(this, h, item)
+    return radioInit.call(this, h, props, item)
   }))
 }
 
-function radioInit(h, item) {
+function radioInit(h, props, item) {
   return h(Radio, {
     props: assign(item.props, { name: item.key }),
     on: {
@@ -49,14 +49,16 @@ function radioInit(h, item) {
         this.form[this.form_item_key] = item.key;
       }
     },
-  }, [
-    h('span', {
-      domProps: {
-        innerHTML: item.value
-      },
-      slot: 'default'
-    })
-  ])
+  }, [radioValueInit(h,item.value)])
+}
+
+function radioValueInit(h, value){
+  return h('span', {
+    domProps: {
+      innerHTML: value
+    },
+    slot: 'default'
+  })
 }
 
 export default {
