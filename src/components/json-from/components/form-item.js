@@ -7,6 +7,14 @@ import checkbox from './items/checkbox';
 import picker from './items/picker.vue';
 import date from './items/date.vue';
 
+const Components = {
+  field,
+  radio,
+  checkbox,
+  picker,
+  date,
+}
+
 export default {
   mixins: [mixin],
   render(h) {
@@ -16,17 +24,6 @@ export default {
     if (ifDiasbled && typeof ifDiasbled == 'function') {
       setDisabled(ifDiasbled, form_item_config, form)
     }
-    switch (type) {
-      case 'field':
-        return h(field, { props: { form_item_config, form, form_item_key } })
-      case 'radio':
-        return h(radio, { props: { form_item_config, form, form_item_key } })
-      case 'checkbox':
-        return h(checkbox, { props: { form_item_config, form, form_item_key } })
-      case 'picker':
-        return h(picker, { props: { form_item_config, form, form_item_key } })
-      case 'date':
-        return h(date, { props: { form_item_config, form, form_item_key } })
-    }
+    return h(Components[type], { props: { form_item_config, form, form_item_key } })
   },
 }
