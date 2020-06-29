@@ -1,24 +1,17 @@
 <script>
 import mixin from "../../utils/form-item-mixin";
 import assign from "../../utils/assign";
-
+import { VAN_CEIL_STYLE } from "./base";
 import vueMask from "@components/mask";
 import { Icon, DatetimePicker } from "vant";
 
 function pickerActiveValueInit(h, props, format) {
   return h("div", {
     domProps: {
-      innerHTML: (() => {
-        if (
-          format &&
-          typeof format == "function" &&
-          this.form[this.form_item_key]
-        ) {
-          return format(this.form[this.form_item_key]) || props.label;
-        } else {
-          return props.label;
-        }
-      })()
+      innerHTML:
+        format && typeof format == "function" && this.form[this.form_item_key]
+          ? format(this.form[this.form_item_key]) || props.label
+          : props.label
     }
   });
 }
@@ -80,10 +73,7 @@ export default {
       "div",
       {
         class: "van-cell",
-        style: {
-          "align-items": "center",
-          "justify-content": "space-between"
-        },
+        style: VAN_CEIL_STYLE,
         on: {
           click: () => {
             this.show();

@@ -1,6 +1,7 @@
 import mixin from '../../utils/form-item-mixin';
 import assign from '../../utils/assign';
 import setDisabled from '../../utils/setDiaabled';
+import {LABEL_STYLE} from './base';
 import { Checkbox, CheckboxGroup } from 'vant';
 
 function checkboxClick(result, value) {
@@ -15,10 +16,7 @@ function checkboxClick(result, value) {
 function labelInit(h, props) {
   return h('div', {
     class: 'checkbox-title',
-    style: {
-      'font-weight': 'bold',
-      'padding-bottom': '10px'
-    },
+    style: LABEL_STYLE,
     domProps: {
       innerHTML: props.label
     }

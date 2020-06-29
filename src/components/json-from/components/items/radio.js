@@ -1,16 +1,14 @@
 import mixin from '../../utils/form-item-mixin';
 import assign from '../../utils/assign';
 import setDisabled from '../../utils/setDiaabled';
+import {LABEL_STYLE} from './base';
 import { RadioGroup, Radio } from 'vant';
 
 // label 渲染
 function labelInit(h, props) {
   return h('div', {
     class: 'radio-title',
-    style: {
-      'font-weight': 'bold',
-      'padding-bottom': '10px'
-    },
+    style: LABEL_STYLE,
     domProps: {
       innerHTML: props.label
     }
