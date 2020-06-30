@@ -26,7 +26,8 @@ const routes = [
   {
     path: '/json-form',
     component: ()=>import(/* webpackChunkName: "json-form" */'@pages/VantJsonForm.vue')
-  }
+  },
+  
 ]
 
 function createRouter() {

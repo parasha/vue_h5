@@ -4,17 +4,20 @@
  */
 function inputPositionFix() {
   let timeout = null;
-  window.addEventListener(
-    "blur",
-    e => {
-      if (e.target.nodeName == "INPUT" || e.target.nodeName == "TEXTAREA") {
-        timeout = setTimeout(() => {
-          scroll();
-        }, 200);
-      }
-    },
+  window.addEventListener("blur", e => {
+    if (e.target.nodeName == "INPUT" || e.target.nodeName == "TEXTAREA") {
+      timeout = setTimeout(() => {
+        scroll();
+      }, 200);
+    }
+  },
     true
   );
+  window.addEventListener("focus", e => {
+    if (e.target.nodeName == "INPUT" || e.target.nodeName == "TEXTAREA") {
+      clearTimeout(timeout)
+    }
+  }, true)
 }
 function scroll() {
   if (document.activeElement == document.body) {
