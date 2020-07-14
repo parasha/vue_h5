@@ -6,6 +6,8 @@ function scrollObeserveDirective(Vue, cb) {
         // 进入视窗时触发
         if (entry.isIntersecting) {
           cb(JSON.parse(entry.target.getAttribute('data-exposure-props')))
+          // 埋点这个东西曝光一次就够了
+          so.unobserve(entry.target)
         }
       })
     }, {

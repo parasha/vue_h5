@@ -23,6 +23,10 @@ window.addEventListener('pageshow', (e) => {
   }
 });
 
+// 调试工具
+import VConsole from 'vconsole';
+new VConsole();
+
 // 通过插件注册一些实例方法： toast、dialog、showLoading……
 import plugin from './plugins/index';
 Vue.use(plugin);
