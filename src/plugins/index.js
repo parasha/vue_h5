@@ -23,7 +23,7 @@ plugin.install = (Vue, options) => {
   Vue.prototype.$hideLoading = (text) => {
     Toast.clear();
   };
-
+  // 曝光监听，自定义指令
   scrollObeserveDirective(Vue, (value)=>{
     console.log('曝光事件触发:', value)
   })
