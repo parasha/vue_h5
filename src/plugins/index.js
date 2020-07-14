@@ -1,6 +1,8 @@
 import axios from '@common/js/ajax';
 import { Toast, Dialog } from 'vant';
 
+import scrollObeserveDirective from './scrollObserve';
+
 const plugin = {};
 
 plugin.install = (Vue, options) => {
@@ -21,6 +23,10 @@ plugin.install = (Vue, options) => {
   Vue.prototype.$hideLoading = (text) => {
     Toast.clear();
   };
+
+  scrollObeserveDirective(Vue, (value)=>{
+    console.log('曝光事件触发:', value)
+  })
 }
 
 export default plugin;

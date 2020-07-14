@@ -27,13 +27,13 @@ export default {
           link: "/infinite-scroll"
         },
         {
-          name: "简化版配置表单",
-          link: "/simple-form"
+          name: '滚动元素曝光',
+          link: '/scroll-observe'
         },
         {
           name: "配置化表单",
           link: "/json-form"
-        }
+        },
       ]
     };
   },

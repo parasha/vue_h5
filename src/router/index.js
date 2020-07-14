@@ -20,14 +20,13 @@ const routes = [
     component: ()=>import(/* webpackChunkName: "infinite-scroll" */'@pages/InfiniteScroll.vue')
   },
   {
-    path: '/simple-form',
-    component: ()=>import(/* webpackChunkName: "simple-form" */'@pages/SimpleForm.vue')
-  },
-  {
     path: '/json-form',
     component: ()=>import(/* webpackChunkName: "json-form" */'@pages/VantJsonForm.vue')
   },
-  
+  {
+    path: '/scroll-observe',
+    component: ()=>import(/* webpackChunkName: "scroll-observe" */'@pages/ScrollObserve.vue')
+  }
 ]
 
 function createRouter() {
