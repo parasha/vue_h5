@@ -15,8 +15,6 @@ export default {
   },
   created: function(){
     this.$store.commit('changeTab','home');
-  },
-  mounted() {
     this.$nextTick().then(()=>{
       const video = new Video(this.$refs.videoVNode, videoUrl)
       video.play()
