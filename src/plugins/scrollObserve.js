@@ -5,14 +5,17 @@ function scrollObeserveDirective(Vue, cb) {
       entries.forEach(entry => {
         // 进入视窗时触发
         if (entry.isIntersecting) {
-          cb(JSON.parse(entry.target.getAttribute('data-exposure-props')))
+          cb(entry.target.exposureProps)
           // 埋点这个东西曝光一次就够了
           so.unobserve(entry.target)
         }
+        // else{
+        //   console.log('离开视口:', entry)
+        // }
       })
     }, {
       root: null,
-      rootMargin: "0px",
+      rootMargin: "10px 0px",
       threshold: 0.3 // 不一定非得全部露出来  这个阈值可以小一点点
     });
   }
@@ -22,7 +25,7 @@ function scrollObeserveDirective(Vue, cb) {
       if (!window.IntersectionObserver) {
         return;
       }
-      el.setAttribute('data-exposure-props', JSON.stringify(binding.value));
+      el.exposureProps = binding.value;
       so.observe(el)
     },
     unbind: function (el) {
