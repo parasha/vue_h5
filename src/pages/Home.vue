@@ -1,6 +1,9 @@
 <template>
   <layout>
     <video ref="videoVNode" controls></video>
+    <hr>
+    <p>stateNum: {{bus.stateNum}}</p>
+    <button @click='injectHandle'>+1</button>
   </layout>
 </template>
 
@@ -13,6 +16,7 @@ export default {
   components: {
     layout
   },
+  inject: ['bus'],
   created: function(){
     this.$store.commit('changeTab','home');
     this.$nextTick().then(()=>{
@@ -20,6 +24,11 @@ export default {
       video.play()
     })
   },
+  methods: {
+    injectHandle(){
+      this.bus.stateNum += 1;
+    }
+  }
 };
 </script>
 
