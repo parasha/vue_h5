@@ -26,6 +26,7 @@ const config = {
     https: true,
     open: true,
     hot: true,
+    contentBase: path.resolve(__dirname, '../public'),
   },
   plugins: [
     new webpack.ProvidePlugin({

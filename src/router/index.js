@@ -26,6 +26,11 @@ const routes = [
   {
     path: '/scroll-observe',
     component: ()=>import(/* webpackChunkName: "scroll-observe" */'@pages/ScrollObserve.vue')
+  },
+  {
+    path: '/dynamic',
+    component: ()=>import(/* webpackChunkName: "dynamic" */'@pages/Dynamic.vue')
+    
   }
 ]
 
